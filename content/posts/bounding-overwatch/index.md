@@ -8,6 +8,7 @@ categories: ["themes", "syntax"]
 series: ["Arma Missions"]
 ShowToc: true
 TocOpen: false
+draft: true
 ---
 
 Arma 3's default AI typically do not coordinate beyond a group level and have limited coordination inside a group. This leads to sub-optimal performance in firefights and more unrealistic behaviour from AI. As it seems they tend to take foolish actions. This motivated me to attempt to improve AI behaviour with some realistic tactical coordination.
@@ -139,4 +140,4 @@ Arma 3 offers the ability to create custom scripted waypoints via its `setWaypoi
 {{< youtube IarNU65wtzI >}}
 
 # Summary
-One of the key takeways that to accomplish this in SQF is unfortunately expense there is a lot of code that needs to run to monitor the group and issue actions. This may work well for small numbers of AI but would efficiently scale to big numbers. Hopefully this is something addressed by AI in a future military simulation game.
+One of the key takeaways that to accomplish this in SQF is unfortunately expense there is a lot of code that needs to run to monitor the group and issue actions. This may work well for small numbers of AI but would efficiently scale to big numbers. Hopefully this is something addressed by AI in a future military simulation game.
