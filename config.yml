@@ -58,7 +58,7 @@ params:
     ShowBreadCrumbs: true
     ShowToc: true
     # comments: false
-    images: ["papermod-cover.png"]
+    images: ["snippers_blog.png"]
 
     profileMode:
         enabled: false
