@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Snippers Blog</title>
+    <link>https://sniperhid.github.io/</link>
+    <description>Recent content on Snippers Blog</description>
+    <image>
+      <url>https://sniperhid.github.io/papermod-cover.png</url>
+      <link>https://sniperhid.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://sniperhid.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Escape the Ambush - Case study of coordinated AI attack</title>
+      <link>https://sniperhid.github.io/posts/escape-the-ambush/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sniperhid.github.io/posts/escape-the-ambush/</guid>
+      <description>A mission centered around AI encirclement of escaping players</description>
+    </item>
+    
+    <item>
+      <title>Escape The Bear - Case study of Priorization</title>
+      <link>https://sniperhid.github.io/posts/escape-the-bear/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sniperhid.github.io/posts/escape-the-bear/</guid>
+      <description>Escape the bear is a mission I worked on at the beginning of 2018. It&amp;#39;s inspired by the Soviet Afghanistan War. </description>
+    </item>
+    
+    <item>
+      <title>Aussie Holdout - Case study of pathfinding</title>
+      <link>https://sniperhid.github.io/posts/defence-pathfinding/</link>
+      <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://sniperhid.github.io/posts/defence-pathfinding/</guid>
+      <description>AI attacking fixed defense position</description>
+    </item>
+    
+    <item>
+      <title>AI Bounding Overwatch</title>
+      <link>https://sniperhid.github.io/posts/bounding-overwatch/</link>
+      <pubDate>Sat, 03 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://sniperhid.github.io/posts/bounding-overwatch/</guid>
+      <description>Attempting AI to  fire and maneuver tactics</description>
+    </item>
+    
+    <item>
+      <title>Dynamic Squad Mission - Initial look into dynamic scenarios</title>
+      <link>https://sniperhid.github.io/posts/dynamic-squad-mission/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://sniperhid.github.io/posts/dynamic-squad-mission/</guid>
+      <description>A simple dynamic mission </description>
+    </item>
+    
+    
+    
+    
+    
+  </channel>
+</rss>

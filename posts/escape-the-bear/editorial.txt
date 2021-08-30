@@ -1,0 +1,6 @@
+// SQF to generate Excel.
+_arr = [];
+_arr resize 10000;
+arr = _arr apply {floor random [0,0,40]}
+
+// Convert to Excel replace , with \r\n to plot
