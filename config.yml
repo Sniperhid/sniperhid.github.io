@@ -44,7 +44,7 @@ outputs:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+    description: "Snippers blog - https://sniperhid.github.io"
     author: Snippers
     # author: ["Me", "You"] # multiple authors
 
@@ -76,7 +76,7 @@ params:
     homeInfoParams:
         Title: "Snippers Blog"
         Content: >
-           A collection of blog posts about mission design in Arma 3.
+           A collection of blog posts about scripted mission design in Arma 3.
 
 
     # socialIcons:
