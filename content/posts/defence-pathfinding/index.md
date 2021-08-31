@@ -10,7 +10,7 @@ ShowToc: true
 TocOpen: false
 ---
 
-The first version of aussie holdout appeared in 2015, and has served as a hotbed for a few ideas. In 2018 I worked on upgrading it from the 2D to 3D editor and doing more experimentation.
+The first version of Aussie Holdout appeared in 2015, and has served as a hotbed for a few ideas. In 2018 I worked on upgrading it from the 2D to 3D editor and doing more experimentation.
 
 # Mission Premise
 The premise of this mission is for the players to hold a fixed position while waves of AI attack.
@@ -27,19 +27,19 @@ An easy way to determine spawn points is to place game logics and give them a na
 
 ![map](spawn-game-logic.jpg)
 
-The original version of the mission was made Arma 3's 2D mission editor which would allow assigning waypoints to game logics. These were then copied to spawned groups, giving the mission maker plenty of control (via custom mission code).
+The original version of the mission was made with Arma 3's 2D mission editor which would allow assigning waypoints to game logics. These were then copied to spawned groups, giving the mission maker plenty of control (via custom mission code).
 
 Unfortunately the 3D editor removed the ability to assign waypoints to game logics, and so a new approach was required for assigning waypoints.
 
 ## Calculating AI movement orders
 
 ### Simple movement
-An easy next step is to either simply have the AI moving directly from the spawnpoint to the defense position by creating a waypoint on the defence objective. 
+An easy next step is to either simply have the AI move directly from the spawnpoint to the defense position by creating a waypoint on the defence objective. 
 
 However this can lead to foolish choices such as walking across large open exposed areas where they can be easily picked off on their approach.
 
 ### Line of Sight Grid
-A simple idea when attacking is to get as close as possible without the enemy being able to see you. I decided to apply this principle into action. Something we can get a reasonable approximation for is the visibility of a position from another by doing some intersection testing, checking if either terrain or objects block the visibility from two positions.
+A simple idea when attacking is to get as close as possible without the enemy being able to see you. A simple method to produce a reasonable approximation for the visibility of a position from another is by doing some intersection testing. Fortunately Arma 3 comes with a few scripting commands for checking for intersection across a line (akin to ray-casting). We then simply check if either terrain or objects block the visibility from two positions.
 
 #TODO: Show line(?)
 
@@ -58,15 +58,15 @@ This is enough to automatically create waypoints for advancing elements.
 # Diversifying the attack
 It's not just enough for an attack to have soldiers heading straight forward to an objective. Suppressive fire is extremely useful. So we want to have some of the attacking fire used for providing suppressive fire while others are advancing (covering fire).
 
-To achieve this we need to identify positions for the base of fire elements to go to. Whilst this can be done automatically and is something to be explored in the future. I opted for the quicker method of preplacing gamelogics for base of fire positions (identified by naming convention e.g. infbof_ or veh_bof) as shown below:
+To achieve this we need to identify positions for the base of fire elements to go to. Whilst this can be done automatically and is something to be explored in the future. I opted for the quicker method of preplacing gamelogics for base of fire positions (identified by naming convention e.g. `infbof_` or `veh_bof`) as shown below:
 
 ![map](bof_placement.jpg)
 
-I separated the vehicle and infantry bof positions as some are inappropriate for infantry and vehicles and vice versa. For example vehicle autocannons are capable for being effective at great ranges 800m+. While infantry small arms rifles typically have a shorter effective range of 300-500m. Vehicles also need suitable approaches to the base of fire and not navigate all types of terrain.
+I separated the vehicle and infantry bof positions as some are inappropriate for infantry and vehicles and vice versa. For example vehicle autocannons are capable for being effective at great ranges 800m+. While infantry small arms rifles typically have a shorter effective range of 300-500m. Vehicles also need suitable approaches to the base of fire and are not able to navigate all types of terrain.
 
 In general a good covering position should have good visibility of the objective.
 
-I then also wrote code for base of fire elements to forcefully fire upon the objective periodically from their position.
+I also wrote some code for base of fire elements to forcefully fire upon the objective periodically from their position.
 
 # The result
 Now we combine this all together and ingame we'll see something like the following orders assigned to the AI.
