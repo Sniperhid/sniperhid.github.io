@@ -25,7 +25,7 @@ The next step is to determine potential locations for the enemies to spawn.
 
 ![map](map_spawn.jpg)
 
-As shown above I have just placed game logic objects (blue squares with a flag icon). The system can pick randomly from these points.
+As shown above I placed game logic objects (blue squares with a flag icon). These are relatively easy to find via code and the system can then pick randomly from these points.
 
 # Setting up the AI Orders
 
@@ -33,32 +33,32 @@ As shown above I have just placed game logic objects (blue squares with a flag i
 ### Destination: Calculating Engagement positions
 A simple idea is that ultimately the AI should encircle the players. A simple mathematical tool is producing a [convex hull](https://en.wikipedia.org/wiki/Convex_hull) around the players. This is just a polygon line that surrounds all players (shown as a blue line in the below image).
 ![map](convex-hull.jpg)
-This convex hull can then be transformed to be bigger polygon of where we want to the AI to be when engaging the players. I'll call this the "Engagement polygon" moving forwards. It is visualized above as a red line in which all points from the convex hull are pushed another 100m away from the center of the polygon.
+This convex hull can then be transformed to be a bigger polygon of where we want the AI to be when engaging the players. I'll call this the "Engagement polygon" moving forwards. It is visualized above as a red line in which all points from the convex hull are pushed another 100m away from the center of the polygon.
 
 ## Attacking Forces
-To use this engagement polygon well on this plan we need to dispatch multiple groups (Fireteams/Squads) of AI to the player.
+To use the engagement polygon effectively we need to dispatch multiple groups (Fireteams/Squads) of AI to attack the players.
 
 Arma exposes the ability to add waypoints to groups of AI which the ingame AI will follow. So to get this to work the initial piece of work is to figure out where the units should attack from.
 
-To provide a challenge we need them to space out around the engagement polygon. It's well established in military doctrine that going into a firefight as a big blob is not suitable. We'll aim to spread out the troops across a line formation. As shown below 4 groups of 5 soldiers each in line formation:
+To provide a challenge for the players we need to space out the AI units around the engagement polygon. As opposed to having them in a big blob which is ill advised in military doctrine. An effective way to do this is  to spread out the troops across a line formation. Shown below is 4 groups of 5 soldiers each in a line formation:
 
 
 ![map](line-formation.jpg)
 
-To ease things for the AI I also backplaced waypoints for each group behind the final engagement waypoints. As this forces the AI to already be working towards the direction they should be facing to engage. In addition the spacing between the groups waypoints will depend on the group to ensure there is enough room for all the soliders to be in line without groups overlapping.
+To ease things for the AI I also created waypoints for each group behind their final engagement waypoints. As this forces the AI to already be advancing in the direction they should engaging the players. In addition the spacing between the groups is calculated by the size of the group to ensure there is enough room for all the soldiers to be in line without groups overlapping.
 
 ![map](waypoints0.jpg)
 
-There is a potential synchronization issue where some groups may move to their waypoints before other groups (see below where the right most group is closer to its engagement point than the others). This can be solved by having some code monitor the groups and ordering groups that are ahead of others to slow down by walking whilst the other groups catching up moving faster by jogging. Which eventually balances itself out.
+There is a potential synchronization issue where some groups may reach their waypoints before other groups (see below where the right most group is closer to its engagement point than the others). This can be mitigated by having some code monitor the groups progress. Then ordering groups that are ahead of others to slow down by switching to a walking pace whilst the other groups catching up move faster by jogging.
 
 ![map](group-synch.jpg)
 
 ## Scaling up
-To spice things up for the players we want to send multiple groups after the players at the same time. The groups claim a part of the perimeter of the engagement polygon and prevent other groups from it, resulting in a nice encirclement of final waypoints around the players as visualized below:
+To spice things up for the players we want to send multiple groups after the players at the same time. The groups claim a part of the perimeter of the engagement polygon and prevent other groups from it, resulting in a encirclement of final waypoints around the players as visualized below:
 ![map](waypoints1.jpg)
 ![map](waypoints2.jpg)
 
-Now finally as a mission multiple waves are sent to the players, and plans are rebalanced as the players move. Now in practice "No plan survives first contact with the enemy". The players keep moving and the AI lose units. Both of these present their own issues but could be countered in the future. But for the time being the coordinated approach seemed cool enough to release as a mission.
+Now finally to package this as a fully playable mission. There is code that will spawn multiple waves periodically using this strategy. Then engagement polygons and waypoints are rebalanced as the players move. In practice "No plan survives first contact with the enemy". The players keep moving and the AI lose units. Both of these present their own issues and I have done little to address that but for the time being the coordinated approach seemed cool enough to release as a mission.
 
 # Appendix 
 
